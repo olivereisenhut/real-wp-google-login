@@ -6,7 +6,7 @@
  */
 /*
 Plugin Name: Real Google Login
-Description: The only working google login plugin on earth
+Description: The only working google login plugin for Wordpress
 Author: oliver.eisenhut@gmail.com
 Version: 0.1
  */
@@ -16,6 +16,18 @@ require_once 'vendor/autoload.php';
 function custom_rewrite_rule()
 {
   add_action('template_redirect', 'handle_auth');
+  add_filter('v_forcelogin_bypass', 'whitelist_login');
+}
+
+function whitelist_login($urls)
+{
+  $code = $_GET['code'];
+  if ($code) {
+    require('google_client.php');
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    return $token['error'] == null;
+  }
+  return false;
 }
 
 function handle_auth()
