@@ -1,0 +1,4 @@
+<FilesMatch "\.(json|lock|yml|md)$">
+Deny from all
+
+</FilesMatch>
