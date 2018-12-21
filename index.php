@@ -40,8 +40,8 @@ function myplugin_add_login_fields()
 {
   require('google_client.php')
   ?>
-  <div class="request">
-    <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
+  <div style="width: 100%; margin-bottom: 15px;">
+    <a class="button" href='<?= $authUrl ?>'>Login with Google</a>
   </div>
   <?php
 
