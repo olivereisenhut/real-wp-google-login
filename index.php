@@ -15,17 +15,15 @@ require_once 'vendor/autoload.php';
 
 function custom_rewrite_rule()
 {
-  add_action('template_redirect', 'handle_auth');
   add_filter('v_forcelogin_bypass', 'whitelist_login');
+  add_action('template_redirect', 'handle_auth');
 }
 
 function whitelist_login($urls)
 {
   $code = $_GET['code'];
   if ($code) {
-    require('google_client.php');
-    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-    return $token['error'] == null;
+    return true;
   }
   return false;
 }

@@ -14,4 +14,3 @@ $client->setRedirectUri($redirect_uri);
 
 $authUrl = $client->createAuthUrl();
 $service = new Google_Service_Plus($client);
-?>

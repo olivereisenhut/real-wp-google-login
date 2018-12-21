@@ -5,6 +5,7 @@ require('google_client.php');
 try {
 
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $client->setAccessToken($token);
     $person = $service->people->get('me');
     $display_name = $person->displayName;
     $email = array_pop($person->getEmails())->value;
@@ -26,7 +27,7 @@ try {
 
     wp_safe_redirect(site_url());
 } catch (Exception $e) {
-    return;
+    wp_safe_redirect(wp_login_url());
 }
 
 ?>
