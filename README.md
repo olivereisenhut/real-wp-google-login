@@ -7,8 +7,9 @@ Compatible with [Force Login plugin](https://github.com/kevinvess/wp-force-login
 
 1. Clone repo into `wp-content/plugins`
 2. Donwload Google OAuth credentials from the [API console](https://console.developers.google.com/apis/credentials)
-3. rename it to `client_secret.json` and put it into the projects directory
-4. install dependencies with `composer install`
+3. Enable Google+ APIs
+4. Rename credentials JSON-file to `client_secret.json` and put it into the projects directory
+5. Install dependencies with `composer install`
 
 ## Dev
 
