@@ -16,10 +16,7 @@ try {
         wp_create_user($display_name, $password, $email);
     }
     $user = get_user_by('email', $email);
-    // TODO sane validation
-    $user->remove_role('subscriber');
-    $user->add_role('editor');
-
+    // to change default role use the wordpress setting: Settings -> General -> New User Default Role
     wp_set_current_user($user->ID, $user_name);
     wp_set_auth_cookie($user->ID, true);
 
